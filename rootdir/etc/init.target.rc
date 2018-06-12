@@ -40,6 +40,9 @@ on boot
     chown gps system /dev/bbd_sensor
     chmod 0774 /dev/bbd_sensor
 
+    #Enable suspend to idle mode to reduce latency during suspend/resume
+    write /sys/power/mem_sleep "s2idle"
+
 on post-fs-data
     mkdir /data/vendor/gps
     mkdir /data/vendor/gps/log
